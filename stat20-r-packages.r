@@ -24,7 +24,8 @@ set_libs <- c(
   "janitor", "2.2.0",
   "quarto", "1.2",
   "fs", "1.6.3",
-  "vcd", "1.4-12"
+  "vcd", "1.4-12",
+  "rsample", "1.2.1"
 )
 
 set_libs_install_version(set_name, set_libs)
