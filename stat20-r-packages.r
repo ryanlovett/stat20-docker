@@ -25,7 +25,8 @@ set_libs <- c(
   "quarto", "1.2",
   "fs", "1.6.3",
   "vcd", "1.4-12",
-  "rsample", "1.2.1"
+  "cobalt", "4.5.5",
+  "MatchIt", "4.5.5"
 )
 
 set_libs_install_version(set_name, set_libs)
