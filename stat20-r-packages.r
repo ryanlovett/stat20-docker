@@ -24,14 +24,16 @@ set_libs <- c(
   "janitor", "2.2.0",
   "quarto", "1.2",
   "fs", "1.6.3",
-  "vcd", "1.4-12",
-  "cobalt", "4.5.5",
-  "MatchIt", "4.5.5"
+  "vcd", "1.4-12"
+  #"cobalt", "4.5.5",
+  #"MatchIt", "4.5.5"
 )
 
 set_libs_install_version(set_name, set_libs)
 
 remotes::install_github("stat20/stat20data")
 remotes::install_github("hadley/emo")
+remotes::install_github("ngreifer/cobalt")
+remotes::install_github("kosukeimai/MatchIt")
 
 print(paste("Done installing packages for", set_name))
