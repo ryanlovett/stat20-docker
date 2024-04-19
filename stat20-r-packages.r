@@ -24,7 +24,8 @@ set_libs <- c(
   "janitor", "2.2.0",
   "quarto", "1.2",
   "fs", "1.6.3",
-  "vcd", "1.4-12"
+  "vcd", "1.4-12",
+  "optmatch", "0.10.7"
   #"cobalt", "4.5.5",
   #"MatchIt", "4.5.5"
 )
