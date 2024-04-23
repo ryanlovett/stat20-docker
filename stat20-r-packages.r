@@ -26,7 +26,7 @@ set_libs <- c(
   "fs", "1.6.3",
   "vcd", "1.4-12",
   "optmatch", "0.10.7"
-  #"cobalt", "4.5.5",
+  #"cobalt", "4.5.5", unsure why these don't work in this image. Installing from github instead.
   #"MatchIt", "4.5.5"
 )
 
