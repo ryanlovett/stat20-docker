@@ -28,7 +28,7 @@ RUN apt-get update && \
 
 # While quarto is included with rocker/verse, we sometimes need different
 # versions than the default. For example a newer version might fix bugs.
-ENV _QUARTO_VERSION=1.4.549
+ENV _QUARTO_VERSION=1.6.6
 RUN curl -L -o /tmp/quarto.deb https://github.com/quarto-dev/quarto-cli/releases/download/v${_QUARTO_VERSION}/quarto-${_QUARTO_VERSION}-linux-amd64.deb
 RUN apt-get install /tmp/quarto.deb && \
     rm -f /tmp/quarto.deb
