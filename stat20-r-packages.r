@@ -32,7 +32,7 @@ set_libs <- c(
 
 set_libs_install_version(set_name, set_libs)
 
-remotes::install_github("stat20/stat20data@11b4377")
+remotes::install_github("stat20/stat20data@2536a78")
 remotes::install_github("hadley/emo")
 remotes::install_github("ngreifer/cobalt")
 remotes::install_github("kosukeimai/MatchIt")
