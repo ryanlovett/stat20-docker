@@ -1,7 +1,7 @@
 # https://docs.github.com/en/actions/creating-actions/dockerfile-support-for-github-actions
 
-# https://github.com/rocker-org/rocker-versioned2/wiki/verse_c41250521d1f
-FROM rocker/verse:4.3.2
+# https://github.com/rocker-org/rocker-versioned2/wiki/verse_eed2e6d65206
+FROM rocker/verse:4.4.1
 
 ENV TZ=Etc/UTC
 
@@ -28,7 +28,7 @@ RUN apt-get update && \
 
 # While quarto is included with rocker/verse, we sometimes need different
 # versions than the default. For example a newer version might fix bugs.
-ENV _QUARTO_VERSION=1.6.6
+ENV _QUARTO_VERSION=1.6.25
 RUN curl -L -o /tmp/quarto.deb https://github.com/quarto-dev/quarto-cli/releases/download/v${_QUARTO_VERSION}/quarto-${_QUARTO_VERSION}-linux-amd64.deb
 RUN apt-get install /tmp/quarto.deb && \
     rm -f /tmp/quarto.deb
