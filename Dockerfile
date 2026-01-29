@@ -34,15 +34,21 @@ RUN curl -L -o /tmp/quarto.deb https://github.com/quarto-dev/quarto-cli/releases
 RUN apt-get install /tmp/quarto.deb && \
     rm -f /tmp/quarto.deb
 
-COPY set-libs.r /tmp/set-libs.r
+# Switch to rstudio user for R package installation
+USER rstudio
 
-COPY stat20-r-packages.r /tmp/r-packages/
-RUN r /tmp/r-packages/stat20-r-packages.r && \
-    rm -rf /tmp/downloaded_packages /tmp/repos*.rds /tmp/file*
+# Set snapshot date for reproducible package management
+# Update this date to get newer package versions - format: YYYY-MM-DD
+# See https://packagemanager.posit.co/client/#/repos/cran/setup for available dates
+ENV SNAPSHOT_DATE=2025-10-01
 
-# Reduce the side of RSPM packages
-# https://rocker-project.org/use/extending.html
-RUN strip /usr/local/lib/R/site-library/*/libs/*.so
+# Configure R to use Posit Package Manager with binary packages for Ubuntu Noble
+RUN echo "options(repos = c(CRAN = 'https://packagemanager.posit.co/cran/__linux__/noble/${SNAPSHOT_DATE}'))" > ~/.Rprofile && \
+    echo "options(HTTPUserAgent = sprintf('R/%s R (%s)', getRversion(), paste(getRversion(), R.version['platform'], R.version['arch'], R.version['os'])))" >> ~/.Rprofile
+
+# Copy and run package installation script
+COPY install.R /tmp/install.R
+RUN Rscript /tmp/install.R
 
 WORKDIR /home/rstudio
 
