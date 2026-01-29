@@ -50,6 +50,8 @@ RUN echo "options(repos = c(CRAN = 'https://packagemanager.posit.co/cran/__linux
 COPY install.R /tmp/install.R
 RUN Rscript /tmp/install.R
 
+USER root
+
 WORKDIR /home/rstudio
 
 # RStudio port
